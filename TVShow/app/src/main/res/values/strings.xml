@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TVShow</string>
+    <string name="action_about">Sobre</string>
+    <string name="action_license">Licença</string>
 </resources>
