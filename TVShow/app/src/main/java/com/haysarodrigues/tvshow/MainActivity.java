@@ -1,6 +1,8 @@
 package com.haysarodrigues.tvshow;
 
 import android.content.Intent;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,12 +10,51 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ViewPager viewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /* Lógica dos tabs */
+
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        viewPager.setAdapter(new TabsAdapter(getSupportFragmentManager()));
+
+        final ActionBar actionBar = getSupportActionBar();
+        actionBar.setNavigationMode(android.app.ActionBar.NAVIGATION_MODE_TABS);
+
+        /* TAB 1 */
+        actionBar.addTab(actionBar.newTab().setText("Series").
+                setTabListener(new MyTabListener(viewPager, 0)));
+
+        /* TAB 2 */
+        actionBar.addTab(actionBar.newTab().setText("Movies").
+                setTabListener(new MyTabListener(viewPager, 1)));
+
+
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                actionBar.setSelectedNavigationItem(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+
     }
+
+
 
     /**
      * Menu lado direito da main activity
