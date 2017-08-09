@@ -3,12 +3,11 @@ package com.haysarodrigues.tvshow;
 import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends android.support.v7.app.AppCompatActivity {
 
     private ViewPager viewPager;
 
@@ -17,20 +16,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /* Lógica dos tabs */
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         viewPager.setAdapter(new TabsAdapter(getSupportFragmentManager()));
 
+
         final ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(android.app.ActionBar.NAVIGATION_MODE_TABS);
 
-        /* TAB 1 */
-        actionBar.addTab(actionBar.newTab().setText("Series").
+        /* TAB SERIES */
+        actionBar.addTab(actionBar.newTab().setText("SERIES").
                 setTabListener(new MyTabListener(viewPager, 0)));
 
-        /* TAB 2 */
-        actionBar.addTab(actionBar.newTab().setText("Movies").
+        /* TAB FILMES */
+        actionBar.addTab(actionBar.newTab().setText("FILMES").
                 setTabListener(new MyTabListener(viewPager, 1)));
 
 
@@ -43,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 actionBar.setSelectedNavigationItem(position);
+
             }
 
             @Override
@@ -51,10 +51,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
     }
-
-
 
     /**
      * Menu lado direito da main activity

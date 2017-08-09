@@ -1,5 +1,7 @@
 package com.haysarodrigues.tvshow;
 
+import android.content.Context;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
@@ -10,20 +12,22 @@ import android.support.v7.app.ActionBar;
 
 public class MyTabListener implements ActionBar.TabListener {
 
-    private ViewPager viewPager;
-    private int position;
+   private ViewPager viewPager;
+    private int index;
 
 
-    public MyTabListener(ViewPager view, int position){
+    public MyTabListener(ViewPager viewPager, int index){
 
-        this.viewPager = view;
-        this.position = position;
+        this.viewPager = viewPager;
+        this.index = index;
 
     }
 
+
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-        viewPager.setCurrentItem(position);
+        viewPager.setCurrentItem(index);
+
     }
 
     @Override
