@@ -11,6 +11,7 @@ public class LicenseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_license);
 
+        getSupportActionBar().setTitle(R.string.action_license);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

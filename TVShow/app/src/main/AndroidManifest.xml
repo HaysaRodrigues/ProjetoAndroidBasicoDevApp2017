@@ -27,6 +27,7 @@
         <activity android:name=".AboutActivity" />
         <activity android:name=".LicenseActivity" />
         <activity android:name="com.haysarodrigues.listmoviesandseries.SerieActivity"></activity>
+        <activity android:name="com.haysarodrigues.listmoviesandseries.MovieActivity"></activity>
     </application>
 
 </manifest>

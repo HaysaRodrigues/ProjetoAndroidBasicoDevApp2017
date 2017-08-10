@@ -11,6 +11,7 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
+        getSupportActionBar().setTitle(R.string.action_about);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

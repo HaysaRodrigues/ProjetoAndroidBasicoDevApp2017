@@ -29,16 +29,19 @@ public class SeriesAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
+
         return series.length;
     }
 
     @Override
     public Object getItem(int i) {
+
         return series[i];
     }
 
     @Override
     public long getItemId(int i) {
+
         return i;
     }
 
@@ -47,7 +50,7 @@ public class SeriesAdapter extends BaseAdapter {
 
         String serie = series[i];
         View viewSeries = LayoutInflater.from(context).inflate(R.layout.adapter_series, viewGroup, false);
-        TextView tw = (TextView) viewSeries.findViewById(R.id.text);
+        TextView tw = (TextView) viewSeries.findViewById(R.id.textAdapterSeries);
         tw.setText(serie);
         return viewSeries;
     }
