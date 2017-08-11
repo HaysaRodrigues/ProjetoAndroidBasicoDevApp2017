@@ -28,6 +28,14 @@
         <activity android:name=".LicenseActivity" />
         <activity android:name="com.haysarodrigues.listmoviesandseries.SerieActivity"></activity>
         <activity android:name="com.haysarodrigues.listmoviesandseries.MovieActivity"></activity>
+
+        <receiver android:name=".TVShowBroadcastReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="WISHLIST"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+
+        </receiver>
     </application>
 
 </manifest>

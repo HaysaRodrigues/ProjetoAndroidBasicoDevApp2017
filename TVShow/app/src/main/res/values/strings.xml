@@ -3,4 +3,7 @@
     <string name="action_about">Sobre</string>
     <string name="action_license">Licença</string>
     <string name="title_activity_serie">SerieActivity</string>
+    <string name="button_wishlist">Guardar na Wishlist</string>
+
+
 </resources>
