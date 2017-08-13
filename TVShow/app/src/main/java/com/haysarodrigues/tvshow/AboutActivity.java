@@ -1,10 +1,15 @@
 package com.haysarodrigues.tvshow;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 public class AboutActivity extends AppCompatActivity {
+
+    private final String URL = "https://github.com/HaysaRodrigues/ProjetoAndroidBasicoDevApp2017";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +25,13 @@ public class AboutActivity extends AppCompatActivity {
 
         onBackPressed();
         return true;
+    }
+
+    public void clickLink (View view){
+
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(URL));
+        startActivity(i);
+
     }
 }

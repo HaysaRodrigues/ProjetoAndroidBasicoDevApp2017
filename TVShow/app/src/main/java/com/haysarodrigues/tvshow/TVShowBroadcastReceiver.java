@@ -3,6 +3,7 @@ package com.haysarodrigues.tvshow;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.view.View;
 
 /**
  * Created by Haysa on 10/08/17.
@@ -15,9 +16,9 @@ public class TVShowBroadcastReceiver extends BroadcastReceiver {
 
         Intent intent1 = new Intent(context, getClass());
 
-        NotificationWishList.notify(context, 1, intent1, "Item salvo na sua Wishlist", getResultData());
-
-
+        NotificationWishList.notify(context, 1, intent1, "Item salvo na sua Wishlist!", getResultData());
 
     }
+
+
 }

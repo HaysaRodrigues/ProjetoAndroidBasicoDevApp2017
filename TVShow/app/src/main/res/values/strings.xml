@@ -1,9 +1,13 @@
 <resources>
     <string name="app_name">TVShow</string>
+    <string name="tab_movies">FILMES</string>
+    <string name="tab_series">SERIES</string>
     <string name="action_about">Sobre</string>
     <string name="action_license">Licença</string>
     <string name="title_activity_serie">SerieActivity</string>
     <string name="button_wishlist">Guardar na Wishlist</string>
-
-
+    <string name="web_link">Clique aqui para saber mais!</string>
+    <string name="about_link">Aplicativo feito para avaliação da matéria de Android Básico.
+        Clique aqui para saber mais sobre o aplicativo!</string>
+    <string name="license_text">Aplicativo feito para avaliação da matéria de Android Básico.</string>
 </resources>

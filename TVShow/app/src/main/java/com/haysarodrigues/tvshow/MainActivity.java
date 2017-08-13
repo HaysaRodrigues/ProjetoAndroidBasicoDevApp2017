@@ -25,11 +25,11 @@ public class MainActivity extends android.support.v7.app.AppCompatActivity {
         actionBar.setNavigationMode(android.app.ActionBar.NAVIGATION_MODE_TABS);
 
         /* TAB SERIES */
-        actionBar.addTab(actionBar.newTab().setText("SERIES").
+        actionBar.addTab(actionBar.newTab().setText(R.string.tab_series).
                 setTabListener(new MyTabListener(viewPager, 0)));
 
         /* TAB FILMES */
-        actionBar.addTab(actionBar.newTab().setText("FILMES").
+        actionBar.addTab(actionBar.newTab().setText(R.string.tab_movies).
                 setTabListener(new MyTabListener(viewPager, 1)));
 
 

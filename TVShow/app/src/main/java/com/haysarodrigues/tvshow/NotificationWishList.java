@@ -7,8 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 
-import com.haysarodrigues.listmoviesandseries.SerieActivity;
-
 /**
  * Created by Haysa on 10/08/17.
  */
@@ -26,7 +24,7 @@ public class NotificationWishList {
                 setContentIntent(pI).
                 setContentTitle(contentTitle).
                 setContentText(contentText).
-                setSmallIcon(R.mipmap.ic_launcher).
+                setSmallIcon(R.mipmap.ic_live_tv_black_24dp).
                 setAutoCancel(true);
 
         Notification n = builder.build();

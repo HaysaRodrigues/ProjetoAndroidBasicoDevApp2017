@@ -23,7 +23,7 @@ public class TabsAdapter extends FragmentPagerAdapter {
             return new FragmentSeries();
         }
 
-        // default
+        // default return
         return new FragmentMovies();
 
     }

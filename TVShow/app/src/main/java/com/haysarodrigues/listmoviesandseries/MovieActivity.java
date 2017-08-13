@@ -1,6 +1,7 @@
 package com.haysarodrigues.listmoviesandseries;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
@@ -42,8 +43,15 @@ public class MovieActivity extends AppCompatActivity implements View.OnClickList
 
         Intent intent = new Intent(new Intent("WISHLIST"));
         sendBroadcast(intent);
-        //Toast.makeText(this, "broadcast enviado", Toast.LENGTH_SHORT).show();
 
+    }
+
+    public void onClickSearchWeb(View view){
+        String movie = getIntent().getStringExtra("movie");
+        String url = "https://www.google.com.br/search?q=" + movie ;
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
     }
 
 }

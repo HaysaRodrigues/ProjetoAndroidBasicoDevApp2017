@@ -30,11 +30,13 @@ public class MoviesAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
+
         return movies.length;
     }
 
     @Override
     public Object getItem(int i) {
+
         return movies[i];
     }
 

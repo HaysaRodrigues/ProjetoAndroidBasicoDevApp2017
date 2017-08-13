@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">TVShow</string>
+    <string name="tab_movies">MOVIES</string>
+    <string name="tab_series">SERIES</string>
     <string name="action_about">About</string>
     <string name="action_license">License</string>
     <string name="title_activity_serie">SerieActivity</string>
-    <string name="button_wishlist">Keep in Wishlist</string>
+    <string name="button_wishlist">Keep in Wishlistt</string>
+    <string name="web_link">Click here to know more!</string>
+    <string name="about_link">
+        Android Application created just for evaluation of Basic Android Course.
+        Click here to know more about the App code!
+    </string>
+    <string name="license_text">Android Application created just for evaluation of Basic Android Course.</string>
 </resources>
