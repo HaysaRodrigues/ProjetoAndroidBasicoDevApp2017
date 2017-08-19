@@ -1,4 +1,4 @@
-package com.haysarodrigues.tvshow;
+package com.haysarodrigues.fragments;
 
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
@@ -10,7 +10,7 @@ import android.support.v7.app.ActionBar;
 
 public class MyTabListener implements ActionBar.TabListener {
 
-   private ViewPager viewPager;
+    private ViewPager viewPager;
     private int index;
 
 

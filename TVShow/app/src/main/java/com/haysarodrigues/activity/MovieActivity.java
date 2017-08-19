@@ -1,4 +1,4 @@
-package com.haysarodrigues.listmoviesandseries;
+package com.haysarodrigues.activity;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.haysarodrigues.tvshow.R;
 

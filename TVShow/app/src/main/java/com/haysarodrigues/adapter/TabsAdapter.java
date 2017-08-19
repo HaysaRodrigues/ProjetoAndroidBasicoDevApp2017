@@ -1,8 +1,11 @@
-package com.haysarodrigues.tvshow;
+package com.haysarodrigues.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.haysarodrigues.fragments.FragmentMovies;
+import com.haysarodrigues.fragments.FragmentSeries;
 
 /**
  * Created by Haysa on 08/08/17.

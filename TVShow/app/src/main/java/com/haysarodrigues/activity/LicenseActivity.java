@@ -1,8 +1,10 @@
-package com.haysarodrigues.tvshow;
+package com.haysarodrigues.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+
+import com.haysarodrigues.tvshow.R;
 
 public class LicenseActivity extends AppCompatActivity {
 

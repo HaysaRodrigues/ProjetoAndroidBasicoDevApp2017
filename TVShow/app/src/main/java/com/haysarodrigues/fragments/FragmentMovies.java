@@ -1,4 +1,4 @@
-package com.haysarodrigues.tvshow;
+package com.haysarodrigues.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +9,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.haysarodrigues.listmoviesandseries.MovieActivity;
-import com.haysarodrigues.listmoviesandseries.MoviesAdapter;
+import com.haysarodrigues.activity.MovieActivity;
+import com.haysarodrigues.adapter.MoviesAdapter;
+import com.haysarodrigues.tvshow.R;
 
 /**
  * Created by Haysa on 08/08/17.

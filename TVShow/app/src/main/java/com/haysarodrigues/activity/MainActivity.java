@@ -1,4 +1,4 @@
-package com.haysarodrigues.tvshow;
+package com.haysarodrigues.activity;
 
 import android.content.Intent;
 import android.support.v4.view.ViewPager;
@@ -6,6 +6,10 @@ import android.support.v7.app.ActionBar;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.haysarodrigues.fragments.MyTabListener;
+import com.haysarodrigues.tvshow.R;
+import com.haysarodrigues.adapter.TabsAdapter;
 
 public class MainActivity extends android.support.v7.app.AppCompatActivity {
 

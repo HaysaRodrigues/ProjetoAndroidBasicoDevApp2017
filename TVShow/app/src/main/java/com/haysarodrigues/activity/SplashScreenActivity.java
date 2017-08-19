@@ -1,9 +1,12 @@
-package com.haysarodrigues.tvshow;
+package com.haysarodrigues.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+
+import com.haysarodrigues.activity.MainActivity;
+import com.haysarodrigues.tvshow.R;
 
 /**
  * Created by Haysa on 07/08/17.

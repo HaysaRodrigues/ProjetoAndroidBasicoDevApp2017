@@ -1,4 +1,4 @@
-package com.haysarodrigues.listmoviesandseries;
+package com.haysarodrigues.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
