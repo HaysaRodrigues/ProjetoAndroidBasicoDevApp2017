@@ -1,8 +1,11 @@
 package com.haysarodrigues.fragments;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +14,13 @@ import android.widget.ListView;
 
 import com.haysarodrigues.activity.MovieActivity;
 import com.haysarodrigues.adapter.MoviesAdapter;
+import com.haysarodrigues.domain.Util;
+import com.haysarodrigues.model.Movie;
 import com.haysarodrigues.tvshow.R;
+
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Haysa on 08/08/17.
@@ -19,35 +28,93 @@ import com.haysarodrigues.tvshow.R;
 
 public class FragmentMovies extends android.support.v4.app.Fragment {
 
+    public static ListView listView;
+    public static final String pURL =
+            "https://api.themoviedb.org/3/discover/movie?api_key=782f2aaaee7308f5db36241b029cf5e9";
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_movies, container, false);
+        listView = (ListView) view.findViewById(R.id.listViewMovies);
 
-        ListView listView = (ListView) view.findViewById(R.id.listViewMovies);
-        listView.setAdapter(new MoviesAdapter(getActivity()));
-        listView.setOnItemClickListener(onItemClickMovies());
+//        ListView listView = (ListView) view.findViewById(R.id.listViewMovies);
+//        listView.setAdapter(new MoviesAdapter(getActivity()));
+//        listView.setOnItemClickListener(onItemClickMovies());
+
+        if (Util.checkIsConnect(getContext())){
+            GetMoviesTask getMoviesTask = new GetMoviesTask();
+            getMoviesTask.execute(pURL);
+        }
 
         return view;
     }
 
 
-    private AdapterView.OnItemClickListener onItemClickMovies(){
-        return new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+    /**
+     * OnItemClickListener opens an activity about item/movie selected
+     * @return
+     */
+//    private AdapterView.OnItemClickListener onItemClickMovies(){
+//        return new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//
+//                MoviesAdapter mAdapter = (MoviesAdapter) adapterView.getAdapter();
+//                String movie = (String) mAdapter.getItem(i);
+//
+//                Intent intent = new Intent(getActivity(), MovieActivity.class);
+//                intent.putExtra("movie", movie);
+//                startActivity(intent);
+//
+//
+//
+//            }
+//        };
+//    }
 
-                MoviesAdapter mAdapter = (MoviesAdapter) adapterView.getAdapter();
-                String movie = (String) mAdapter.getItem(i);
-
-                Intent intent = new Intent(getActivity(), MovieActivity.class);
-                intent.putExtra("movie", movie);
-                startActivity(intent);
 
 
+    private class GetMoviesTask extends AsyncTask<String, Void, List<Movie>>{
 
+        List<Movie> movieList;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected List<Movie> doInBackground(String... strings) {
+
+            movieList = new ArrayList<>();
+
+            String url = strings[0];
+            InputStream inputStream = Util.getStream(url);
+
+            String body = Util.convertStreamToString(inputStream);
+
+            movieList = Util.parseJson(body);
+
+            return movieList;
+        }
+
+
+        @Override
+        protected void onPostExecute(List<Movie> movies) {
+            super.onPostExecute(movies);
+
+            listView.setAdapter(new MoviesAdapter(getContext(), movies));
+            //listView.setOnItemClickListener(onItemClickMovies());
+
+
+
+            for (int i = 0; i < movies.size(); i++) {
+                Log.d("MOVIES: ", movies.get(i).getTitle() + "OVERVIEW: "
+                        +movies.get(i).getOverview() + "VALOR DA NOTA --> "+movies.get(i).getVote_average());
             }
-        };
+        }
     }
 }
