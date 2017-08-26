@@ -19,10 +19,6 @@ import java.util.List;
 
 public class MoviesAdapter extends BaseAdapter {
 
-//    private String [] movies = new String[] {"Ghost in the Shell", "Logan", "The Boss Baby", "The Shack", "Zombieland",
-//            "Avatar", "Wonder Woman", "Spider-Man", "Life", "Split", "Beauty and the Beast", "The Founder", "Why Him?",
-//            "Land of Mine", "Certain Women"} ;
-
     private Context context;
     private final List<Movie> movies;
 
@@ -52,6 +48,7 @@ public class MoviesAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
+
         Movie movie = movies.get(i);
         View viewMovies = LayoutInflater.from(context).inflate(R.layout.adapter_movies, viewGroup, false);
         TextView tw = (TextView) viewMovies.findViewById(R.id.textAdapterMovies);

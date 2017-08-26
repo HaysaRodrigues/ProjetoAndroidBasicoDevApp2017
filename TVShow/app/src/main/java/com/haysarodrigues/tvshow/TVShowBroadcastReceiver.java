@@ -3,7 +3,6 @@ package com.haysarodrigues.tvshow;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.view.View;
 
 /**
  * Created by Haysa on 10/08/17.

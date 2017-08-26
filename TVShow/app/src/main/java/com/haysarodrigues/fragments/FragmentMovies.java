@@ -1,18 +1,13 @@
 package com.haysarodrigues.fragments;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.haysarodrigues.activity.MovieActivity;
 import com.haysarodrigues.adapter.MoviesAdapter;
 import com.haysarodrigues.domain.Util;
 import com.haysarodrigues.model.Movie;
@@ -40,10 +35,6 @@ public class FragmentMovies extends android.support.v4.app.Fragment {
         View view = inflater.inflate(R.layout.fragment_movies, container, false);
         listView = (ListView) view.findViewById(R.id.listViewMovies);
 
-//        ListView listView = (ListView) view.findViewById(R.id.listViewMovies);
-//        listView.setAdapter(new MoviesAdapter(getActivity()));
-//        listView.setOnItemClickListener(onItemClickMovies());
-
         if (Util.checkIsConnect(getContext())){
             GetMoviesTask getMoviesTask = new GetMoviesTask();
             getMoviesTask.execute(pURL);
@@ -51,30 +42,6 @@ public class FragmentMovies extends android.support.v4.app.Fragment {
 
         return view;
     }
-
-
-    /**
-     * OnItemClickListener opens an activity about item/movie selected
-     * @return
-     */
-//    private AdapterView.OnItemClickListener onItemClickMovies(){
-//        return new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//
-//                MoviesAdapter mAdapter = (MoviesAdapter) adapterView.getAdapter();
-//                String movie = (String) mAdapter.getItem(i);
-//
-//                Intent intent = new Intent(getActivity(), MovieActivity.class);
-//                intent.putExtra("movie", movie);
-//                startActivity(intent);
-//
-//
-//
-//            }
-//        };
-//    }
-
 
 
     private class GetMoviesTask extends AsyncTask<String, Void, List<Movie>>{
@@ -107,14 +74,7 @@ public class FragmentMovies extends android.support.v4.app.Fragment {
             super.onPostExecute(movies);
 
             listView.setAdapter(new MoviesAdapter(getContext(), movies));
-            //listView.setOnItemClickListener(onItemClickMovies());
 
-
-
-            for (int i = 0; i < movies.size(); i++) {
-                Log.d("MOVIES: ", movies.get(i).getTitle() + "OVERVIEW: "
-                        +movies.get(i).getOverview() + "VALOR DA NOTA --> "+movies.get(i).getVote_average());
-            }
         }
     }
 }
