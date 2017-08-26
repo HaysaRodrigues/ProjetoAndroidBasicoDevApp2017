@@ -36,11 +36,9 @@ public class FragmentSeries extends android.support.v4.app.Fragment {
         View view = inflater.inflate(R.layout.fragment_series, container, false);
         listView = (ListView) view.findViewById(R.id.listView);
 
-
-        // checA chave da API
-        if (API_KEY.isEmpty()){
-            Toast.makeText(getContext(), "Invalid API Key", Toast.LENGTH_LONG).show();
-        }
+            if (API_KEY.isEmpty()){
+                Toast.makeText(getContext(), "Invalid API Key", Toast.LENGTH_LONG).show();
+            }
 
         ApiInterfaceSeries callApiInterfaceSeries = APIClient.getClient().create(ApiInterfaceSeries.class);
 
