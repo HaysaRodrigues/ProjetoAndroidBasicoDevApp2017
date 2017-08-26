@@ -1,5 +1,4 @@
-# ProjetoAndroidBasicoDevApp2017
-Project CESAR-DEVAPPS 2017.1 - Basic Android. 
+## Part 1 - Android Básico
 1. Fragments; 
 2. Empty Activities; 
 3. Broadcast;
@@ -7,3 +6,7 @@ Project CESAR-DEVAPPS 2017.1 - Basic Android.
 5. ListView with Adapter
 6. internationalization (Strings);
 7. Notification;
+
+## Part 2 - Consume WebService (Retrofit + Parse)
+1. Retrofit
+2. Parse without retrofit
