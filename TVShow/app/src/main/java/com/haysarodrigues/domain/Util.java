@@ -3,6 +3,7 @@ package com.haysarodrigues.domain;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.haysarodrigues.model.Movie;
@@ -26,6 +27,7 @@ import java.util.List;
 
 public class Util {
 
+    private static final String TAG = "UtilParserClass";
 
     public static boolean checkIsConnect(Context context) {
 
@@ -66,9 +68,12 @@ public class Util {
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
+            Log.e(TAG, "Method getStream has catch MalformedURLException");
 
         } catch (IOException e) {
             e.printStackTrace();
+            Log.e(TAG, "Method getStream has catch IOException");
+
         }
 
         return null;
@@ -96,6 +101,7 @@ public class Util {
 
             } catch (IOException e) {
                 e.printStackTrace();
+                Log.e(TAG, "Method convertStreamToString has catch IOException");
             }
 
         }
@@ -129,6 +135,7 @@ public class Util {
 
         } catch (JSONException e) {
             e.printStackTrace();
+            Log.e(TAG, "Method parseJson has catch JSONException");
         }
 
 

@@ -3,6 +3,7 @@ package com.haysarodrigues.fragments;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ import java.util.List;
 
 public class FragmentMovies extends android.support.v4.app.Fragment {
 
+    private static final String TAG = "FragmentMovies";
     public static ListView listView;
     public static final String pURL =
             "https://api.themoviedb.org/3/discover/movie?api_key=782f2aaaee7308f5db36241b029cf5e9";
@@ -51,10 +53,14 @@ public class FragmentMovies extends android.support.v4.app.Fragment {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            Log.i(TAG, "Call onPreExecute from AsyncTask");
+
         }
 
         @Override
         protected List<Movie> doInBackground(String... strings) {
+
+            Log.i(TAG, "Call doInBackground from AsyncTask");
 
             movieList = new ArrayList<>();
 
@@ -73,6 +79,7 @@ public class FragmentMovies extends android.support.v4.app.Fragment {
         protected void onPostExecute(List<Movie> movies) {
             super.onPostExecute(movies);
 
+            Log.i(TAG, "Call onPostExecute from AsyncTask");
             listView.setAdapter(new MoviesAdapter(getContext(), movies));
 
         }
