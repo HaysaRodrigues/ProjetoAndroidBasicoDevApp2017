@@ -2,7 +2,6 @@ package com.haysarodrigues.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 
 import com.haysarodrigues.fragments.FragmentMovies;
 import com.haysarodrigues.fragments.FragmentSeries;
@@ -11,9 +10,9 @@ import com.haysarodrigues.fragments.FragmentSeries;
  * Created by Haysa on 08/08/17.
  */
 
-public class TabsAdapter extends FragmentPagerAdapter {
+public class ViewPagerAdapter extends android.support.v4.app.FragmentPagerAdapter {
 
-    public TabsAdapter(FragmentManager supportFragmentManager){
+    public ViewPagerAdapter(FragmentManager supportFragmentManager) {
 
         super(supportFragmentManager);
     }
@@ -22,7 +21,7 @@ public class TabsAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
-        if(position == 0){
+        if (position == 0) {
             return new FragmentSeries();
         }
 
