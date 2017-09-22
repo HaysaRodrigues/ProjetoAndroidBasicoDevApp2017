@@ -25,11 +25,14 @@ public class SerieActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.buttonWishList).setOnClickListener(this);
 
         /* Leva o título sendo o item da lista */
-        String serie = getIntent().getStringExtra("serie");
-        TextView text = (TextView) findViewById(R.id.textSerie);
-        text.setText(serie);
-        getSupportActionBar().setTitle(serie);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        String title = getIntent().getStringExtra("titleSerie");
+        TextView text = (TextView) findViewById(R.id.titleSerie);
+        text.setText(title);
+
+        String overview = getIntent().getStringExtra("overview");
+        TextView textOverview = (TextView) findViewById(R.id.textOverview);
+        textOverview.setText(overview);
+
 
     }
 

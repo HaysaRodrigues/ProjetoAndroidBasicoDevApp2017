@@ -21,7 +21,7 @@ public class SeriesAdapter extends BaseAdapter {
     private Context context;
     private List<Serie> series;
 
-    public SeriesAdapter(Context context, List<Serie> series){
+    public SeriesAdapter(Context context, List<Serie> series) {
         super();
         this.context = context;
         this.series = series;
@@ -38,6 +38,10 @@ public class SeriesAdapter extends BaseAdapter {
     public Object getItem(int i) {
 
         return series.get(i).getName();
+    }
+
+    public Object getOverview(int i) {
+        return series.get(i).getOverview();
     }
 
     @Override

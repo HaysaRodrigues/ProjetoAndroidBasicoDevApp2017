@@ -37,7 +37,7 @@ public class FragmentMovies extends android.support.v4.app.Fragment {
         View view = inflater.inflate(R.layout.fragment_movies, container, false);
         listView = (ListView) view.findViewById(R.id.listViewMovies);
 
-        if (Util.checkIsConnect(getContext())){
+        if (Util.checkIsConnect(getContext())) {
             GetMoviesTask getMoviesTask = new GetMoviesTask();
             getMoviesTask.execute(pURL);
         }
@@ -46,7 +46,7 @@ public class FragmentMovies extends android.support.v4.app.Fragment {
     }
 
 
-    private class GetMoviesTask extends AsyncTask<String, Void, List<Movie>>{
+    private class GetMoviesTask extends AsyncTask<String, Void, List<Movie>> {
 
         List<Movie> movieList;
 
