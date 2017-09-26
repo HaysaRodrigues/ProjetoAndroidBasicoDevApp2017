@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.haysarodrigues.tvshow.R;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by Haysa on 08/08/17.
@@ -22,7 +24,14 @@ public class SerieActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_serie);
 
         /* Outra forma de setar o click listener*/
-        findViewById(R.id.buttonWishList).setOnClickListener(this);
+        //findViewById(R.id.buttonWishList).setOnClickListener(this);
+
+
+        String image = getIntent().getStringExtra("image");
+        ImageView imageSerie = (ImageView) findViewById(R.id.imageViewSerie);
+        Picasso.with(this).load(image).into(imageSerie);
+
+
 
         /* Leva o título sendo o item da lista */
         String title = getIntent().getStringExtra("titleSerie");

@@ -51,7 +51,7 @@ public class Serie {
     }
 
     public String getPoster_path() {
-        return poster_path;
+        return "http://image.tmdb.org/t/p/w154/"+poster_path;
     }
 
     public void setPoster_path(String poster_path) {

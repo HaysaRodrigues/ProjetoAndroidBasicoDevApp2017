@@ -59,7 +59,6 @@ public class FragmentSeries extends android.support.v4.app.Fragment {
                 series = response.body().getResults();
                 listView.setAdapter(new SeriesAdapter(getContext(), series));
                 Log.i(TAG, "Call onResponse from Callback");
-                Log.i(TAG, series.get(0).getName());
 
             }
 
@@ -84,10 +83,13 @@ public class FragmentSeries extends android.support.v4.app.Fragment {
                 SeriesAdapter seriesAdapter = (SeriesAdapter) adapterView.getAdapter();
                 String serie = (String) seriesAdapter.getItem(i);
                 String over = (String) seriesAdapter.getOverview(i);
+                String imagePath = (String) seriesAdapter.getImagePath(i);
 
                 Intent intent = new Intent(getActivity(), SerieActivity.class);
                 intent.putExtra("titleSerie", serie);
                 intent.putExtra("overview", over);
+                intent.putExtra("image", imagePath);
+
                 startActivity(intent);
 
             }

@@ -44,6 +44,10 @@ public class SeriesAdapter extends BaseAdapter {
         return series.get(i).getOverview();
     }
 
+    public Object getImagePath(int i){
+        return series.get(i).getPoster_path();
+    }
+
     @Override
     public long getItemId(int i) {
 
