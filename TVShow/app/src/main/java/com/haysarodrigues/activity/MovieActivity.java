@@ -16,6 +16,8 @@ import com.haysarodrigues.tvshow.R;
 
 public class MovieActivity extends AppCompatActivity implements View.OnClickListener{
 
+    private static final String TAG = MovieActivity.class.getSimpleName();
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -12,7 +12,7 @@ import com.haysarodrigues.tvshow.R;
 
 public class AboutActivity extends AppCompatActivity {
 
-    private static final String TAG = "AboutActivity";
+    private static final String TAG = AboutActivity.class.getSimpleName();
     private final String URL = "https://github.com/HaysaRodrigues/ProjetoAndroidBasicoDevApp2017";
 
     @Override

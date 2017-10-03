@@ -8,6 +8,8 @@ import com.haysarodrigues.tvshow.R;
 
 public class LicenseActivity extends AppCompatActivity {
 
+    private static final String TAG = LicenseActivity.class.getSimpleName();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -18,6 +18,8 @@ import com.haysarodrigues.adapter.ViewPagerAdapter;
 
 public class MainActivity extends android.support.v7.app.AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static final String TAG = MainActivity.class.getSimpleName();
+
     private ViewPager viewPager;
     private DrawerLayout drawer;
     private TabLayout tabLayout;

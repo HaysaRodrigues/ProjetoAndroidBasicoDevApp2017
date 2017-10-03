@@ -18,6 +18,8 @@ import com.squareup.picasso.Picasso;
 
 public class SerieActivity extends AppCompatActivity implements View.OnClickListener{
 
+    private static final String TAG = SerieActivity.class.getSimpleName();
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,8 +32,6 @@ public class SerieActivity extends AppCompatActivity implements View.OnClickList
         String image = getIntent().getStringExtra("image");
         ImageView imageSerie = (ImageView) findViewById(R.id.imageViewSerie);
         Picasso.with(this).load(image).into(imageSerie);
-
-
 
         /* Leva o título sendo o item da lista */
         String title = getIntent().getStringExtra("titleSerie");

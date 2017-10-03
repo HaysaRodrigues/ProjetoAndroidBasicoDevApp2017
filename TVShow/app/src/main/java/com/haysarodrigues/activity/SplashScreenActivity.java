@@ -14,6 +14,8 @@ import com.haysarodrigues.tvshow.R;
 
 public class SplashScreenActivity extends AppCompatActivity implements Runnable {
 
+    private static final String TAG = SplashScreenActivity.class.getSimpleName();
+
 
     int TIME_SPLASH = 3000;
 
