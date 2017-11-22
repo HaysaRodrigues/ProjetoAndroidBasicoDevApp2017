@@ -59,7 +59,7 @@ public class SeriesAdapter extends BaseAdapter {
 
         Serie serie = series.get(i);
         View viewSeries = LayoutInflater.from(context).inflate(R.layout.adapter_series, viewGroup, false);
-        TextView tw = (TextView) viewSeries.findViewById(R.id.textAdapterSeries);
+        TextView tw = viewSeries.findViewById(R.id.textAdapterSeries);
         tw.setText(serie.getName());
         return viewSeries;
     }

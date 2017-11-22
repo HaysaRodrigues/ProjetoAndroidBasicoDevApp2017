@@ -51,7 +51,7 @@ public class MoviesAdapter extends BaseAdapter {
 
         Movie movie = movies.get(i);
         View viewMovies = LayoutInflater.from(context).inflate(R.layout.adapter_movies, viewGroup, false);
-        TextView tw = (TextView) viewMovies.findViewById(R.id.textAdapterMovies);
+        TextView tw = viewMovies.findViewById(R.id.textAdapterMovies);
         tw.setText(movie.getTitle());
         return viewMovies;
 

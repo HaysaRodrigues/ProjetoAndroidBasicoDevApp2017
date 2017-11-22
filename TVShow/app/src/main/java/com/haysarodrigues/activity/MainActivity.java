@@ -30,9 +30,9 @@ public class MainActivity extends android.support.v7.app.AppCompatActivity imple
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
+        viewPager = findViewById(R.id.viewPager);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        drawer = findViewById(R.id.drawerLayout);
 
         setSupportActionBar(toolbar);
 
@@ -42,14 +42,14 @@ public class MainActivity extends android.support.v7.app.AppCompatActivity imple
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        tabLayout = findViewById(R.id.tab_layout);
         for (int i = 0; i < 2; i++) {
             tabLayout.addTab(tabLayout.newTab().setText(pageTitle[i]));
         }
 
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         assert navigationView != null;
         navigationView.setNavigationItemSelectedListener(this);
 

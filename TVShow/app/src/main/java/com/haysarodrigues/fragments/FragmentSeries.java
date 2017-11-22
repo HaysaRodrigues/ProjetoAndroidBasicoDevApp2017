@@ -42,7 +42,7 @@ public class FragmentSeries extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_series, container, false);
-        listView = (ListView) view.findViewById(R.id.listView);
+        listView = view.findViewById(R.id.listView);
 
         if (API_KEY.isEmpty()) {
             Toast.makeText(getContext(), "Invalid API Key", Toast.LENGTH_LONG).show();

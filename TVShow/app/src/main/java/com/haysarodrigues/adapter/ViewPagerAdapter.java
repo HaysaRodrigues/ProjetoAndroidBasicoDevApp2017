@@ -25,7 +25,6 @@ public class ViewPagerAdapter extends android.support.v4.app.FragmentPagerAdapte
             return new FragmentSeries();
         }
 
-        // default return
         return new FragmentMovies();
 
     }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/tab_status"
+        icon="@mipmap/ic_favorite"
+        title="Status" />
+
+    <tab
+        id="@+id/tab_explore"
+        icon="@mipmap/ic_favorite"
+        title="Explore" />
+
+    <tab
+        id="@+id/tab_about"
+        icon="@mipmap/ic_favorite"
+        title="About" />
+
+</tabs>

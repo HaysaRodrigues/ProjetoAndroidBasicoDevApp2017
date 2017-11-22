@@ -30,16 +30,16 @@ public class SerieActivity extends AppCompatActivity implements View.OnClickList
 
 
         String image = getIntent().getStringExtra("image");
-        ImageView imageSerie = (ImageView) findViewById(R.id.imageViewSerie);
+        ImageView imageSerie = findViewById(R.id.imageViewSerie);
         Picasso.with(this).load(image).into(imageSerie);
 
         /* Leva o título sendo o item da lista */
         String title = getIntent().getStringExtra("titleSerie");
-        TextView text = (TextView) findViewById(R.id.titleSerie);
+        TextView text = findViewById(R.id.titleSerie);
         text.setText(title);
 
         String overview = getIntent().getStringExtra("overview");
-        TextView textOverview = (TextView) findViewById(R.id.textOverview);
+        TextView textOverview = findViewById(R.id.textOverview);
         textOverview.setText(overview);
 
 

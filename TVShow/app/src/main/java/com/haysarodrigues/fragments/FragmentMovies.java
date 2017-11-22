@@ -35,7 +35,7 @@ public class FragmentMovies extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_movies, container, false);
-        listView = (ListView) view.findViewById(R.id.listViewMovies);
+        listView = view.findViewById(R.id.listViewMovies);
 
         if (Util.checkIsConnect(getContext())) {
             GetMoviesTask getMoviesTask = new GetMoviesTask();

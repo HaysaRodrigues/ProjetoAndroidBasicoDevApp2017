@@ -26,7 +26,7 @@ public class MovieActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.buttonWishList2).setOnClickListener(this);
 
         String movie = getIntent().getStringExtra("movie");
-        TextView textView = (TextView) findViewById(R.id.textMovie);
+        TextView textView = findViewById(R.id.textMovie);
         textView.setText(movie);
         getSupportActionBar().setTitle(movie);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
