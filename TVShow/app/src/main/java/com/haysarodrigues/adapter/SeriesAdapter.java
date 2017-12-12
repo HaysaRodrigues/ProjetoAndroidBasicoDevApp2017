@@ -4,10 +4,10 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.haysarodrigues.model.Serie;
+import com.haysarodrigues.model.Series;
 import com.haysarodrigues.tvshow.R;
 
 import java.util.List;
@@ -16,51 +16,40 @@ import java.util.List;
  * Created by Haysa on 08/08/17.
  */
 
-public class SeriesAdapter extends BaseAdapter {
+public class SeriesAdapter extends ArrayAdapter<Series.Serie> {
 
-    private Context context;
-    private List<Serie> series;
+    private List<Series.Serie> series;
 
-    public SeriesAdapter(Context context, List<Serie> series) {
-        super();
-        this.context = context;
+
+    public SeriesAdapter(Context context, List<Series.Serie> series) {
+        super(context, 0, series);
         this.series = series;
+
     }
 
-
-    @Override
-    public int getCount() {
-
-        return series.size();
-    }
-
-    @Override
-    public Object getItem(int i) {
-
+    public Object getName(int i) {
         return series.get(i).getName();
     }
+
 
     public Object getOverview(int i) {
         return series.get(i).getOverview();
     }
 
-    public Object getImagePath(int i){
+    public Object getImagePath(int i) {
         return series.get(i).getPoster_path();
     }
 
-    @Override
-    public long getItemId(int i) {
-
-        return i;
-    }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int position, View view, ViewGroup viewGroup) {
 
-        Serie serie = series.get(i);
-        View viewSeries = LayoutInflater.from(context).inflate(R.layout.adapter_series, viewGroup, false);
+        Series.Serie series = getItem(position);
+
+        View viewSeries = LayoutInflater.from(getContext()).inflate(R.layout.adapter_series, viewGroup, false);
         TextView tw = viewSeries.findViewById(R.id.textAdapterSeries);
-        tw.setText(serie.getName());
+        tw.setText(series.getName());
         return viewSeries;
     }
+
 }

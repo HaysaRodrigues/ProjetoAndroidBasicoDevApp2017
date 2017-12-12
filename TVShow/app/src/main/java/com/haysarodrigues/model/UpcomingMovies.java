@@ -13,7 +13,7 @@ public class UpcomingMovies {
     @SerializedName("page")
     private int page;
     @SerializedName("results")
-    private List<Serie> results;
+    private List<Series> results;
     @SerializedName("total_results")
     private int totalResults;
     @SerializedName("total_pages")
@@ -27,11 +27,11 @@ public class UpcomingMovies {
         this.page = page;
     }
 
-    public List<Serie> getResults() {
+    public List<Series> getResults() {
         return results;
     }
 
-    public void setResults(List<Serie> results) {
+    public void setResults(List<Series> results) {
         this.results = results;
     }
 

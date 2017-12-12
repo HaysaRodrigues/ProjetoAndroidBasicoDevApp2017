@@ -15,8 +15,7 @@ import com.haysarodrigues.activity.SerieActivity;
 import com.haysarodrigues.adapter.SeriesAdapter;
 import com.haysarodrigues.domain.APIClient;
 import com.haysarodrigues.domain.ApiInterfaceSeries;
-import com.haysarodrigues.model.Serie;
-import com.haysarodrigues.model.SeriesResponse;
+import com.haysarodrigues.model.Series;
 import com.haysarodrigues.tvshow.R;
 
 import java.util.List;
@@ -35,7 +34,7 @@ public class FragmentSeries extends android.support.v4.app.Fragment {
     private static final String TAG = "FragmentSeries";
     private final static String API_KEY = "782f2aaaee7308f5db36241b029cf5e9";
     public static ListView listView;
-    List<Serie> series;
+    List<Series.Serie> series;
 
     @Nullable
     @Override
@@ -50,20 +49,21 @@ public class FragmentSeries extends android.support.v4.app.Fragment {
 
         ApiInterfaceSeries callApiInterfaceSeries = APIClient.getClient().create(ApiInterfaceSeries.class);
 
-        Call<SeriesResponse> call = callApiInterfaceSeries.getSeriesTv(API_KEY);
-        call.enqueue(new Callback<SeriesResponse>() {
+        Call<Series> call = callApiInterfaceSeries.getSeriesTv(API_KEY);
+        call.enqueue(new Callback<Series>() {
 
             @Override
-            public void onResponse(Call<SeriesResponse> call, Response<SeriesResponse> response) {
+            public void onResponse(Call<Series> call, Response<Series> response) {
 
                 series = response.body().getResults();
                 listView.setAdapter(new SeriesAdapter(getContext(), series));
+
                 Log.i(TAG, "Call onResponse from Callback");
 
             }
 
             @Override
-            public void onFailure(Call<SeriesResponse> call, Throwable t) {
+            public void onFailure(Call<Series> call, Throwable t) {
                 Log.e("Series --->", t.toString());
             }
         });
@@ -81,7 +81,7 @@ public class FragmentSeries extends android.support.v4.app.Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                 SeriesAdapter seriesAdapter = (SeriesAdapter) adapterView.getAdapter();
-                String serie = (String) seriesAdapter.getItem(i);
+                String serie = (String) seriesAdapter.getName(i);
                 String over = (String) seriesAdapter.getOverview(i);
                 String imagePath = (String) seriesAdapter.getImagePath(i);
 
