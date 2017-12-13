@@ -1,4 +1,4 @@
-package com.haysarodrigues.adapter;
+package com.haysarodrigues.ui.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

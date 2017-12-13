@@ -1,4 +1,4 @@
-package com.haysarodrigues.domain;
+package com.haysarodrigues.repository.api;
 
 
 import retrofit2.Retrofit;

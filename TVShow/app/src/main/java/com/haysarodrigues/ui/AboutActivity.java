@@ -1,4 +1,4 @@
-package com.haysarodrigues.activity;
+package com.haysarodrigues.ui;
 
 import android.content.Intent;
 import android.net.Uri;

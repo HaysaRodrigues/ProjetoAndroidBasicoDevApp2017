@@ -1,4 +1,4 @@
-package com.haysarodrigues.fragments;
+package com.haysarodrigues.ui.fragments;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.haysarodrigues.adapter.MoviesAdapter;
-import com.haysarodrigues.domain.Util;
+import com.haysarodrigues.ui.adapter.MoviesAdapter;
+import com.haysarodrigues.repository.api.Util;
 import com.haysarodrigues.model.Movie;
 import com.haysarodrigues.tvshow.R;
 

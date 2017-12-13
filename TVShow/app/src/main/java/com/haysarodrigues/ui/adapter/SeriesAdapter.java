@@ -1,4 +1,4 @@
-package com.haysarodrigues.adapter;
+package com.haysarodrigues.ui.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -20,7 +20,6 @@ public class SeriesAdapter extends ArrayAdapter<Series.Serie> {
 
     private List<Series.Serie> series;
 
-
     public SeriesAdapter(Context context, List<Series.Serie> series) {
         super(context, 0, series);
         this.series = series;
@@ -30,7 +29,6 @@ public class SeriesAdapter extends ArrayAdapter<Series.Serie> {
     public Object getName(int i) {
         return series.get(i).getName();
     }
-
 
     public Object getOverview(int i) {
         return series.get(i).getOverview();

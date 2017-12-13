@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.haysarodrigues.activity.SplashScreenActivity"
+            android:name="com.haysarodrigues.ui.SplashScreenActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
@@ -22,17 +22,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.haysarodrigues.activity.MainActivity">
+        <activity android:name="com.haysarodrigues.ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name="com.haysarodrigues.activity.AboutActivity" />
-        <activity android:name="com.haysarodrigues.activity.LicenseActivity" />
-        <activity android:name="com.haysarodrigues.activity.SerieActivity"></activity>
-        <activity android:name="com.haysarodrigues.activity.MovieActivity"></activity>
+        <activity android:name="com.haysarodrigues.ui.AboutActivity" />
+        <activity android:name="com.haysarodrigues.ui.LicenseActivity" />
+        <activity android:name="com.haysarodrigues.ui.SerieActivity"></activity>
+        <activity android:name="com.haysarodrigues.ui.MovieActivity"></activity>
 
-        <receiver android:name=".TVShowBroadcastReceiver" android:exported="false">
+        <receiver android:name="com.haysarodrigues.ui.notification.TVShowBroadcastReceiver" android:exported="false">
             <intent-filter>
                 <action android:name="WISHLIST"/>
                 <category android:name="android.intent.category.DEFAULT"/>

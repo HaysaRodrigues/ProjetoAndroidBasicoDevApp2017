@@ -1,4 +1,4 @@
-package com.haysarodrigues.activity;
+package com.haysarodrigues.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

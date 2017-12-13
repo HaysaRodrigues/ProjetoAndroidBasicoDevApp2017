@@ -1,4 +1,4 @@
-package com.haysarodrigues.activity;
+package com.haysarodrigues.ui;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -13,7 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.haysarodrigues.tvshow.R;
-import com.haysarodrigues.adapter.ViewPagerAdapter;
+import com.haysarodrigues.ui.adapter.ViewPagerAdapter;
 
 
 public class MainActivity extends android.support.v7.app.AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {

@@ -1,4 +1,4 @@
-package com.haysarodrigues.tvshow;
+package com.haysarodrigues.ui.notification;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

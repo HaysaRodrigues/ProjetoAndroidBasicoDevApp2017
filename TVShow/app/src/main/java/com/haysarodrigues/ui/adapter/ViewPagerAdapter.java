@@ -1,10 +1,10 @@
-package com.haysarodrigues.adapter;
+package com.haysarodrigues.ui.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
-import com.haysarodrigues.fragments.FragmentMovies;
-import com.haysarodrigues.fragments.FragmentSeries;
+import com.haysarodrigues.ui.fragments.FragmentMovies;
+import com.haysarodrigues.ui.fragments.FragmentSeries;
 
 /**
  * Created by Haysa on 08/08/17.

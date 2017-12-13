@@ -1,4 +1,4 @@
-package com.haysarodrigues.tvshow;
+package com.haysarodrigues.ui.notification;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -6,6 +6,8 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
+
+import com.haysarodrigues.tvshow.R;
 
 /**
  * Created by Haysa on 10/08/17.

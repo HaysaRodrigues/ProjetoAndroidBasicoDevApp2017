@@ -1,4 +1,4 @@
-package com.haysarodrigues.domain;
+package com.haysarodrigues.repository.api;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

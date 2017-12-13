@@ -1,4 +1,4 @@
-package com.haysarodrigues.fragments;
+package com.haysarodrigues.ui.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,10 +11,10 @@ import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.AdapterView;
 
-import com.haysarodrigues.activity.SerieActivity;
-import com.haysarodrigues.adapter.SeriesAdapter;
-import com.haysarodrigues.domain.APIClient;
-import com.haysarodrigues.domain.ApiInterfaceSeries;
+import com.haysarodrigues.ui.SerieActivity;
+import com.haysarodrigues.ui.adapter.SeriesAdapter;
+import com.haysarodrigues.repository.api.APIClient;
+import com.haysarodrigues.repository.api.ApiInterfaceSeries;
 import com.haysarodrigues.model.Series;
 import com.haysarodrigues.tvshow.R;
 
