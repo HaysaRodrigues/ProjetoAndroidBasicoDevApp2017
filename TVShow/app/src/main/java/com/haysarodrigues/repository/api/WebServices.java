@@ -11,7 +11,7 @@ import retrofit2.http.Query;
  * Created by Haysa on 25/08/17.
  */
 
-public interface ApiInterfaceSeries {
+public interface WebServices {
 
     @GET("discover/tv")
     Call<Series> getSeriesTv(@Query("api_key") String apiKey);

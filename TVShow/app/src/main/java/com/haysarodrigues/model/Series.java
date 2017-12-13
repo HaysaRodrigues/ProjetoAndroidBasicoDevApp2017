@@ -35,10 +35,6 @@ public class Series {
             return name;
         }
 
-        public void setName(String name) {
-            this.name = name;
-        }
-
 
         public String getOverview() {
             return overview;
@@ -51,11 +47,5 @@ public class Series {
 
 
     }
-
-    public List<Serie> getResults() {
-        return results;
-
-    }
-
 
 }
