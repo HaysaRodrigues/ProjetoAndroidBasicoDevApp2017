@@ -10,3 +10,7 @@
 ## Part 2 - Consume WebService (Retrofit + Parse)
 1. Retrofit
 2. Parse without retrofit
+
+## Part 3 - Architecture Components Android
+1. [Live Data](https://developer.android.com/topic/libraries/architecture/livedata.html)
+2. [View Model](https://developer.android.com/topic/libraries/architecture/viewmodel.html)
