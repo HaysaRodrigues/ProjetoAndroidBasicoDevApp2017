@@ -22,12 +22,15 @@ public class Series {
         private String overview;
         @SerializedName("poster_path")
         private String poster_path;
+        @SerializedName("backdrop_path")
+        private String backdrop_path;
 
-        public Serie(String name, String overview, String poster_path) {
+        public Serie(String name, String overview, String poster_path, String backdrop_path) {
 
             this.name = name;
             this.overview = overview;
             this.poster_path = poster_path;
+            this.backdrop_path = backdrop_path;
 
         }
 
@@ -45,6 +48,9 @@ public class Series {
             return "http://image.tmdb.org/t/p/w154/" + poster_path;
         }
 
+        public String getBackdrop_path() {
+            return "http://image.tmdb.org/t/p/w600/" + backdrop_path;
+        }
 
     }
 

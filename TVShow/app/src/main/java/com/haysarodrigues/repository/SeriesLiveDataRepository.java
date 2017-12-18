@@ -2,9 +2,7 @@ package com.haysarodrigues.repository;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
-import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.haysarodrigues.model.Series;
 import com.haysarodrigues.repository.api.APIClient;
@@ -18,7 +16,7 @@ import retrofit2.Response;
  * Created by Haysa on 12/12/17.
  */
 
-public class SeriesRepository {
+public class SeriesLiveDataRepository {
 
     private WebServices webServices = APIClient.getClient().create(WebServices.class);
     private final static String API_KEY = "782f2aaaee7308f5db36241b029cf5e9";
@@ -36,7 +34,7 @@ public class SeriesRepository {
 
             @Override
             public void onFailure(Call<Series> call, Throwable t) {
-                Log.d(SeriesRepository.class.getSimpleName(), "onFailure:getLiveDataSeries");
+                Log.d(SeriesLiveDataRepository.class.getSimpleName(), "onFailure:getLiveDataSeries");
             }
         });
 

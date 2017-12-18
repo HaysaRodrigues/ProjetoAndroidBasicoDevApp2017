@@ -38,12 +38,15 @@ public class SeriesAdapter extends ArrayAdapter<Series.Serie> {
         return series.get(i).getPoster_path();
     }
 
+    public Object getBackdrop_path(int i) {
+        return series.get(i).getBackdrop_path();
+    }
+
 
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
 
         Series.Serie series = getItem(position);
-
         View viewSeries = LayoutInflater.from(getContext()).inflate(R.layout.adapter_series, viewGroup, false);
         TextView tw = viewSeries.findViewById(R.id.textAdapterSeries);
         tw.setText(series.getName());

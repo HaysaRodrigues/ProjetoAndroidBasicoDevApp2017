@@ -2,17 +2,17 @@
 <tabs>
     <tab
         id="@+id/tab_status"
-        icon="@mipmap/ic_favorite"
+        icon="@mipmap/ic_favorite_border_black_24dp"
         title="Status" />
 
     <tab
         id="@+id/tab_explore"
-        icon="@mipmap/ic_favorite"
+        icon="@mipmap/ic_favorite_border_black_24dp"
         title="Explore" />
 
     <tab
         id="@+id/tab_about"
-        icon="@mipmap/ic_favorite"
+        icon="@mipmap/ic_favorite_border_black_24dp"
         title="About" />
 
 </tabs>

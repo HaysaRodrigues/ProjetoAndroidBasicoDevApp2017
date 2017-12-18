@@ -16,7 +16,7 @@ import com.squareup.picasso.Picasso;
  * Created by Haysa on 08/08/17.
  */
 
-public class SerieActivity extends AppCompatActivity implements View.OnClickListener{
+public class SerieActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = SerieActivity.class.getSimpleName();
 
@@ -28,12 +28,14 @@ public class SerieActivity extends AppCompatActivity implements View.OnClickList
         /* Outra forma de setar o click listener*/
         //findViewById(R.id.buttonWishList).setOnClickListener(this);
 
+        String imageBackdropPath = getIntent().getStringExtra("backdrop_path");
+        ImageView imageBackdrop = findViewById(R.id.backdropPath);
+        Picasso.with(this).load(imageBackdropPath).into(imageBackdrop);
 
-        String image = getIntent().getStringExtra("image");
-        ImageView imageSerie = findViewById(R.id.imageViewSerie);
-        Picasso.with(this).load(image).into(imageSerie);
+        String posterPath = getIntent().getStringExtra("imagePath");
+        ImageView imageSerie = findViewById(R.id.posterPath);
+        Picasso.with(this).load(posterPath).into(imageSerie);
 
-        /* Leva o título sendo o item da lista */
         String title = getIntent().getStringExtra("titleSerie");
         TextView text = findViewById(R.id.titleSerie);
         text.setText(title);
@@ -59,9 +61,9 @@ public class SerieActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
-    public void onClickSearchWeb(View view){
+    public void onClickSearchWeb(View view) {
         String serie = getIntent().getStringExtra("serie");
-        String url = "https://www.google.com.br/search?q=" + serie ;
+        String url = "https://www.google.com.br/search?q=" + serie;
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(url));
         startActivity(i);

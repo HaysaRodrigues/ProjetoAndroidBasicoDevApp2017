@@ -64,11 +64,14 @@ public class FragmentSeries extends android.support.v4.app.Fragment {
             String serie = (String) seriesAdapter.getName(i);
             String over = (String) seriesAdapter.getOverview(i);
             String imagePath = (String) seriesAdapter.getImagePath(i);
+            String backdrop_path = (String) seriesAdapter.getBackdrop_path(i);
+
 
             Intent intent = new Intent(getActivity(), SerieActivity.class);
             intent.putExtra("titleSerie", serie);
             intent.putExtra("overview", over);
-            intent.putExtra("image", imagePath);
+            intent.putExtra("imagePath", imagePath);
+            intent.putExtra("backdrop_path", backdrop_path);
 
             startActivity(intent);
 
