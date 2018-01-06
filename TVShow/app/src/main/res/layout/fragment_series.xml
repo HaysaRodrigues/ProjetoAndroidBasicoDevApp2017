@@ -2,14 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutFrag"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.haysarodrigues.ui.MainActivity"
-    android:id="@+id/layoutFrag">
+    tools:context="com.haysarodrigues.ui.MainActivity">
 
     <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/listView"/>
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/listView"/>
+
 
 </LinearLayout>

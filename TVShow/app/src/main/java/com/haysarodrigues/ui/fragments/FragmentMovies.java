@@ -11,7 +11,7 @@ import android.widget.ListView;
 
 import com.haysarodrigues.ui.adapter.MoviesAdapter;
 import com.haysarodrigues.repository.api.Util;
-import com.haysarodrigues.model.Movie;
+import com.haysarodrigues.model.Movies;
 import com.haysarodrigues.tvshow.R;
 
 import java.io.InputStream;
@@ -46,9 +46,9 @@ public class FragmentMovies extends android.support.v4.app.Fragment {
     }
 
 
-    private class GetMoviesTask extends AsyncTask<String, Void, List<Movie>> {
+    private class GetMoviesTask extends AsyncTask<String, Void, List<Movies>> {
 
-        List<Movie> movieList;
+        List<Movies> moviesList;
 
         @Override
         protected void onPreExecute() {
@@ -58,25 +58,25 @@ public class FragmentMovies extends android.support.v4.app.Fragment {
         }
 
         @Override
-        protected List<Movie> doInBackground(String... strings) {
+        protected List<Movies> doInBackground(String... strings) {
 
             Log.i(TAG, "Call doInBackground from AsyncTask");
 
-            movieList = new ArrayList<>();
+            moviesList = new ArrayList<>();
 
             String url = strings[0];
             InputStream inputStream = Util.getStream(url);
 
             String body = Util.convertStreamToString(inputStream);
 
-            movieList = Util.parseJson(body);
+            moviesList = Util.parseJson(body);
 
-            return movieList;
+            return moviesList;
         }
 
 
         @Override
-        protected void onPostExecute(List<Movie> movies) {
+        protected void onPostExecute(List<Movies> movies) {
             super.onPostExecute(movies);
 
             Log.i(TAG, "Call onPostExecute from AsyncTask");

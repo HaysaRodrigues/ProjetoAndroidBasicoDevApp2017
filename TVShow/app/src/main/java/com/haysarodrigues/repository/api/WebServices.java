@@ -16,6 +16,9 @@ public interface WebServices {
     @GET("discover/tv")
     Call<Series> getSeriesTv(@Query("api_key") String apiKey);
 
+    @GET("movie/popular")
+    Call<Series> getPopularMovies(@Query("api_key") String apiKey);
+
     @GET("movie/upcoming")
     Call<UpcomingMovies> getUpcomingMovies(@Query("api_key") String apiKey);
 

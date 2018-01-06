@@ -6,7 +6,7 @@ import android.net.NetworkInfo;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.haysarodrigues.model.Movie;
+import com.haysarodrigues.model.Movies;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -110,9 +110,9 @@ public class Util {
     }
 
 
-    public static List<Movie> parseJson(String body){
+    public static List<Movies> parseJson(String body){
 
-        List<Movie> movieList = new ArrayList<>();
+        List<Movies> moviesList = new ArrayList<>();
 
         try {
 
@@ -123,13 +123,13 @@ public class Util {
             for (int i = 0; i < jsonArray.length(); i++){
                 JSONObject object = jsonArray.getJSONObject(i);
 
-                Movie movie = new Movie(
-                        object.getString("title"),
-                        object.getString("overview"),
-                        object.getString("vote_average"),
-                        object.getString("poster_path"));
+//                Movies movies = new Movies(
+//                        object.getString("title"),
+//                        object.getString("overview"),
+//                        object.getString("vote_average"),
+//                        object.getString("poster_path"));
 
-                movieList.add(movie);
+//                moviesList.add(movies);
             }
 
 
@@ -139,6 +139,6 @@ public class Util {
         }
 
 
-        return movieList;
+        return moviesList;
     }
 }
