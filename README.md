@@ -15,11 +15,19 @@ This repository contains the evolution of my android project module from C.E.S.A
 1. Retrofit
 2. Parse without retrofit
 
-## Part 3 - Advanced Android 
-##### Layout
-1. Constraint Layout
+## Part 3 - Advanced Android
 
-##### Architecture Components Android
-1. [Live Data](https://developer.android.com/topic/libraries/architecture/livedata.html)
-2. [View Model](https://developer.android.com/topic/libraries/architecture/viewmodel.html)
+<details>
+<summary><b>Layouts</b></summary>
 
+* Constraint Layout
+
+</details>
+
+<details>
+<summary><b>Architecture Components Android</b></summary>
+
+* [Live Data](https://developer.android.com/topic/libraries/architecture/livedata.html)
+* [View Model](https://developer.android.com/topic/libraries/architecture/viewmodel.html)
+
+</details>
