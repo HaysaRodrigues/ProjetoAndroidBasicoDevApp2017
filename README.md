@@ -1,3 +1,7 @@
+This repository contains the evolution of my android project module from C.E.S.A.R mobile development specialization (basic to advanced). </br>
+**2017 - 2018**
+
+
 ## Part 1 - Basic Android
 1. Fragments; 
 2. Empty Activities; 
