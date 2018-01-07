@@ -25,9 +25,6 @@ public class SerieActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_serie);
 
-        /* Outra forma de setar o click listener*/
-        //findViewById(R.id.buttonWishList).setOnClickListener(this);
-
         String imageBackdropPath = getIntent().getStringExtra("backdrop_path");
         ImageView imageBackdrop = findViewById(R.id.backdropPath);
         Picasso.with(this).load(imageBackdropPath).into(imageBackdrop);

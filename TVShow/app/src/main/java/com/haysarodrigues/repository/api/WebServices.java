@@ -1,5 +1,6 @@
 package com.haysarodrigues.repository.api;
 
+import com.haysarodrigues.model.Movies;
 import com.haysarodrigues.model.Series;
 import com.haysarodrigues.model.UpcomingMovies;
 
@@ -16,9 +17,10 @@ public interface WebServices {
     @GET("discover/tv")
     Call<Series> getSeriesTv(@Query("api_key") String apiKey);
 
+    @GET("discover/movie")
+    Call<Movies> getMovies(@Query("api_key") String apiKey);
+
     @GET("movie/upcoming")
     Call<UpcomingMovies> getUpcomingMovies(@Query("api_key") String apiKey);
-
-
 
 }

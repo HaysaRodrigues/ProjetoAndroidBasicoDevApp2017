@@ -15,7 +15,6 @@ public class Series {
 
     public class Serie {
 
-
         @SerializedName("name")
         private String name;
         @SerializedName("overview")

@@ -9,14 +9,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.haysarodrigues.repository.api.APIClient;
+import com.haysarodrigues.repository.api.WebServices;
 import com.haysarodrigues.ui.adapter.MoviesAdapter;
-import com.haysarodrigues.repository.api.Util;
-import com.haysarodrigues.model.Movie;
+import com.haysarodrigues.model.Movies;
 import com.haysarodrigues.tvshow.R;
 
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Haysa on 08/08/17.
@@ -26,8 +29,8 @@ public class FragmentMovies extends android.support.v4.app.Fragment {
 
     private static final String TAG = "FragmentMovies";
     public static ListView listView;
-    public static final String pURL =
-            "https://api.themoviedb.org/3/discover/movie?api_key=782f2aaaee7308f5db36241b029cf5e9";
+    List<Movies.Movie> movies;
+    private final static String API_KEY = "782f2aaaee7308f5db36241b029cf5e9";
 
 
     @Nullable
@@ -37,18 +40,16 @@ public class FragmentMovies extends android.support.v4.app.Fragment {
         View view = inflater.inflate(R.layout.fragment_movies, container, false);
         listView = view.findViewById(R.id.listViewMovies);
 
-        if (Util.checkIsConnect(getContext())) {
-            GetMoviesTask getMoviesTask = new GetMoviesTask();
-            getMoviesTask.execute(pURL);
-        }
+        GetMoviesTask getMoviesTask = new GetMoviesTask();
+        getMoviesTask.execute();
 
         return view;
     }
 
 
-    private class GetMoviesTask extends AsyncTask<String, Void, List<Movie>> {
+    private class GetMoviesTask extends AsyncTask<String, Void, List<Movies>> {
 
-        List<Movie> movieList;
+        List<Movies> moviesList;
 
         @Override
         protected void onPreExecute() {
@@ -58,29 +59,37 @@ public class FragmentMovies extends android.support.v4.app.Fragment {
         }
 
         @Override
-        protected List<Movie> doInBackground(String... strings) {
+        protected List<Movies> doInBackground(String... strings) {
 
             Log.i(TAG, "Call doInBackground from AsyncTask");
 
-            movieList = new ArrayList<>();
+            WebServices webServices = APIClient.getClient().create(WebServices.class);
 
-            String url = strings[0];
-            InputStream inputStream = Util.getStream(url);
+            Call<Movies> call = webServices.getMovies(API_KEY);
 
-            String body = Util.convertStreamToString(inputStream);
+            call.enqueue(new Callback<Movies>() {
+                @Override
+                public void onResponse(Call<Movies> call, Response<Movies> response) {
+                    movies = response.body().getResults();
+                    listView.setAdapter(new MoviesAdapter(getContext(), movies));
+                    Log.i(TAG, "Call onResponse from Callback");
 
-            movieList = Util.parseJson(body);
+                }
 
-            return movieList;
+                @Override
+                public void onFailure(Call<Movies> call, Throwable t) {
+                    Log.e("onfailure movies --->", t.toString());
+                }
+            });
+
+            return moviesList;
         }
 
 
         @Override
-        protected void onPostExecute(List<Movie> movies) {
+        protected void onPostExecute(List<Movies> movies) {
             super.onPostExecute(movies);
-
             Log.i(TAG, "Call onPostExecute from AsyncTask");
-            listView.setAdapter(new MoviesAdapter(getContext(), movies));
 
         }
     }
