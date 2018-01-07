@@ -20,14 +20,14 @@ This repository contains the evolution of my android project module from C.E.S.A
 <details>
 <summary><b>Layouts</b></summary>
 
-* Constraint Layout
+1. Constraint Layout
 
 </details>
 
 <details>
 <summary><b>Architecture Components Android</b></summary>
 
-* [Live Data](https://developer.android.com/topic/libraries/architecture/livedata.html)
-* [View Model](https://developer.android.com/topic/libraries/architecture/viewmodel.html)
+1. [Live Data](https://developer.android.com/topic/libraries/architecture/livedata.html)
+2. [View Model](https://developer.android.com/topic/libraries/architecture/viewmodel.html)
 
 </details>
