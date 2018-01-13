@@ -1,5 +1,9 @@
 package com.haysarodrigues.model;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -13,17 +17,26 @@ public class Series {
     @SerializedName("results")
     public List<Serie> results;
 
+    @Entity(tableName = "series")
     public class Serie {
 
+        @ColumnInfo(name = "name")
         @SerializedName("name")
         private String name;
+
+        @ColumnInfo(name = "overview")
         @SerializedName("overview")
         private String overview;
+
+        @ColumnInfo(name = "poster_path")
         @SerializedName("poster_path")
         private String poster_path;
+
+        @ColumnInfo(name = "backdrop_path")
         @SerializedName("backdrop_path")
         private String backdrop_path;
 
+        @Ignore
         public Serie(String name, String overview, String poster_path, String backdrop_path) {
 
             this.name = name;

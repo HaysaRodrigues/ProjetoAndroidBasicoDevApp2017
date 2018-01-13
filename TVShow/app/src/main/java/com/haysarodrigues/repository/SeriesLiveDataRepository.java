@@ -30,6 +30,7 @@ public class SeriesLiveDataRepository {
             @Override
             public void onResponse(Call<Series> call, Response<Series> response) {
                 data.setValue(response.body());
+
             }
 
             @Override

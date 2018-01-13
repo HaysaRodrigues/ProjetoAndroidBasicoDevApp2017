@@ -2,6 +2,7 @@ package com.haysarodrigues.ui.fragments;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -9,10 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.haysarodrigues.model.Series;
+import com.haysarodrigues.repository.database.AppDatabase;
 import com.haysarodrigues.ui.SerieActivity;
 import com.haysarodrigues.ui.adapter.SeriesAdapter;
 import com.haysarodrigues.tvshow.R;
 import com.haysarodrigues.viewmodel.SeriesViewModel;
+
+import java.util.List;
 
 
 /**
@@ -34,17 +39,20 @@ public class FragmentSeries extends android.support.v4.app.Fragment {
         viewModel.initLiveDataFromSeries();
         listView = view.findViewById(R.id.listView);
 
-        subscribeUiSerie(viewModel);
+        SeriesAsync seriesAsync = new SeriesAsync();
+        seriesAsync.execute();
+
 
         return view;
     }
-
 
     private void subscribeUiSerie(SeriesViewModel seriesViewModel) {
 
         seriesViewModel.getSeries().observe(this, series -> {
             if (series != null) {
+
                 listView.setAdapter(new SeriesAdapter(getContext(), series.results));
+
             }
 
         });
@@ -75,4 +83,33 @@ public class FragmentSeries extends android.support.v4.app.Fragment {
 
         });
     }
+
+
+
+    private class SeriesAsync extends AsyncTask<String, Void, List<Series>> {
+
+        List<Series> seriesList;
+        private final AppDatabase appDatabase;
+
+
+        private SeriesAsync(AppDatabase database) {
+
+            appDatabase = database;
+        }
+
+        @Override
+        protected List<Series> doInBackground(String... strings) {
+
+            subscribeUiSerie(viewModel);
+            return seriesList;
+            addSerie()
+
+        }
+    }
+
+    private static Series.Serie addSerie (final AppDatabase database, Series.Serie series){
+        database.serieDao().insertAllSeries(series);
+        return series;
+    }
+
 }
