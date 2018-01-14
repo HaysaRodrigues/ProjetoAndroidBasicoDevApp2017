@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.haysarodrigues.database.AppDatabase;
+import com.haysarodrigues.database.DatabaseInitializer;
 import com.haysarodrigues.repository.api.APIClient;
 import com.haysarodrigues.repository.api.WebServices;
 import com.haysarodrigues.ui.adapter.MoviesAdapter;
@@ -40,16 +42,23 @@ public class FragmentMovies extends android.support.v4.app.Fragment {
         View view = inflater.inflate(R.layout.fragment_movies, container, false);
         listView = view.findViewById(R.id.listViewMovies);
 
-        GetMoviesTask getMoviesTask = new GetMoviesTask();
+        GetMoviesTask getMoviesTask = new GetMoviesTask(AppDatabase.getAppDatabase(getContext()));
         getMoviesTask.execute();
 
         return view;
     }
 
 
+
+
     private class GetMoviesTask extends AsyncTask<String, Void, List<Movies>> {
 
         List<Movies> moviesList;
+        private final AppDatabase appDatabase;
+
+        private GetMoviesTask(AppDatabase appDB) {
+            appDatabase = appDB;
+        }
 
         @Override
         protected void onPreExecute() {
@@ -74,13 +83,21 @@ public class FragmentMovies extends android.support.v4.app.Fragment {
                     listView.setAdapter(new MoviesAdapter(getContext(), movies));
                     Log.i(TAG, "Call onResponse from Callback");
 
-                }
+                    DatabaseInitializer databaseInitializer = new DatabaseInitializer();
+                    for (Movies.Movie item : movies){
+                        databaseInitializer.populateDatabaseWithMovies(appDatabase, item);
+                    }
+
+         }
 
                 @Override
                 public void onFailure(Call<Movies> call, Throwable t) {
                     Log.e("onfailure movies --->", t.toString());
                 }
             });
+
+
+
 
             return moviesList;
         }

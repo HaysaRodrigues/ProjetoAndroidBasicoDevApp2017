@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.haysarodrigues.database.AppDatabase;
 import com.haysarodrigues.tvshow.R;
 import com.haysarodrigues.ui.adapter.ViewPagerAdapter;
 
@@ -62,6 +63,7 @@ public class MainActivity extends android.support.v7.app.AppCompatActivity imple
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
+
             }
 
             @Override
@@ -74,6 +76,7 @@ public class MainActivity extends android.support.v7.app.AppCompatActivity imple
 
             }
         });
+
 
     }
 
