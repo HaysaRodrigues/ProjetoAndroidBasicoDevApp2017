@@ -31,7 +31,8 @@ public class FragmentMovies extends android.support.v4.app.Fragment {
 
     private static final String TAG = "FragmentMovies";
     public static ListView listView;
-    List<Movies.Movie> movies;
+    List<Movies.Movie> moviesFromService;
+    List<Movies.Movie> moviesFromDB;
     private final static String API_KEY = "782f2aaaee7308f5db36241b029cf5e9";
 
 
@@ -44,6 +45,8 @@ public class FragmentMovies extends android.support.v4.app.Fragment {
 
         GetMoviesTask getMoviesTask = new GetMoviesTask(AppDatabase.getAppDatabase(getContext()));
         getMoviesTask.execute();
+
+
 
         return view;
     }
@@ -79,20 +82,34 @@ public class FragmentMovies extends android.support.v4.app.Fragment {
             call.enqueue(new Callback<Movies>() {
                 @Override
                 public void onResponse(Call<Movies> call, Response<Movies> response) {
-                    movies = response.body().getResults();
-                    listView.setAdapter(new MoviesAdapter(getContext(), movies));
+                    moviesFromService = response.body().getResults();
+//                    listView.setAdapter(new MoviesAdapter(getContext(), moviesFromService));
+
                     Log.i(TAG, "Call onResponse from Callback");
 
                     DatabaseInitializer databaseInitializer = new DatabaseInitializer();
-                    for (Movies.Movie item : movies){
+                    for (Movies.Movie item : moviesFromService){
                         databaseInitializer.populateDatabaseWithMovies(appDatabase, item);
+//                        moviesFromService = appDatabase.moviesDao().getAll();
+//                        moviesFromDB = moviesFromService.get(0);
+//                        Log.i("--========--=->", moviesFromService.get(0).toString());
+
+
+//
+//                        //The user can be retrieved
+//                        List<User> users = mDatabase.userDao().getUsers();
+//                        assertThat(users.size(), is(1));
+//                        User dbUser = users.get(0);
+//                        assertEquals(dbUser.getId(), USER.getId());
                     }
 
-         }
+                    moviesFromDB = appDatabase.moviesDao().getAll();
+                    listView.setAdapter(new MoviesAdapter(getContext(), moviesFromDB));
+                }
 
                 @Override
                 public void onFailure(Call<Movies> call, Throwable t) {
-                    Log.e("onfailure movies --->", t.toString());
+                    Log.e("CAIU ONFAILURE --->", t.toString());
                 }
             });
 

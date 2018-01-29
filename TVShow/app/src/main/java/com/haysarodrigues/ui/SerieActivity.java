@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -40,6 +41,7 @@ public class SerieActivity extends AppCompatActivity implements View.OnClickList
         String overview = getIntent().getStringExtra("overview");
         TextView textOverview = findViewById(R.id.textOverview);
         textOverview.setText(overview);
+        textOverview.setMovementMethod(new ScrollingMovementMethod());
 
 
     }

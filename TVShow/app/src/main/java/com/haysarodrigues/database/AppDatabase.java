@@ -7,7 +7,6 @@ import android.content.Context;
 
 import com.haysarodrigues.model.Movies;
 import com.haysarodrigues.persistence.dao.MoviesDao;
-import com.haysarodrigues.ui.fragments.FragmentMovies;
 
 /**
  * Created by Haysa on 13/01/18.
