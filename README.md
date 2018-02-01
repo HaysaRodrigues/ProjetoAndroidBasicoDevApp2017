@@ -17,18 +17,13 @@ This repository contains the evolution of my android project module from C.E.S.A
 
 ## Part 3 - Advanced Android
 
-<details>
-<summary><b>Layouts</b></summary>
+**Layouts**
 
 1. Constraint Layout
 
-</details>
-
-<details>
-<summary><b>Architecture Components Android</b></summary>
+**Architecture Components Android**
 
 1. [Live Data](https://developer.android.com/topic/libraries/architecture/livedata.html)
 2. [View Model](https://developer.android.com/topic/libraries/architecture/viewmodel.html)
 3. [Room](https://developer.android.com/topic/libraries/architecture/room.html)
 
-</details>
