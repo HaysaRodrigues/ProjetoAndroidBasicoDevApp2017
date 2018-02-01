@@ -1,18 +1,24 @@
 package com.haysarodrigues.ui.fragments;
 
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.haysarodrigues.database.AppDatabase;
 import com.haysarodrigues.database.DatabaseInitializer;
 import com.haysarodrigues.repository.api.APIClient;
 import com.haysarodrigues.repository.api.WebServices;
+import com.haysarodrigues.repository.service.MoviesService;
 import com.haysarodrigues.ui.adapter.MoviesAdapter;
 import com.haysarodrigues.model.Movies;
 import com.haysarodrigues.tvshow.R;
@@ -27,13 +33,12 @@ import retrofit2.Response;
  * Created by Haysa on 08/08/17.
  */
 
-public class FragmentMovies extends android.support.v4.app.Fragment {
+public class FragmentMovies extends android.support.v4.app.Fragment implements ServiceConnection{
 
     private static final String TAG = "FragmentMovies";
     public static ListView listView;
-    List<Movies.Movie> moviesFromService;
     List<Movies.Movie> moviesFromDB;
-    private final static String API_KEY = "782f2aaaee7308f5db36241b029cf5e9";
+    private MoviesService s;
 
 
     @Nullable
@@ -43,88 +48,26 @@ public class FragmentMovies extends android.support.v4.app.Fragment {
         View view = inflater.inflate(R.layout.fragment_movies, container, false);
         listView = view.findViewById(R.id.listViewMovies);
 
-        GetMoviesTask getMoviesTask = new GetMoviesTask(AppDatabase.getAppDatabase(getContext()));
-        getMoviesTask.execute();
+        Intent service = new Intent(getContext(), MoviesService.class);
+        getContext().startService(service);
 
+        moviesFromDB = AppDatabase.getAppDatabase(getContext()).moviesDao().getAll();
+        listView.setAdapter(new MoviesAdapter(getContext(), moviesFromDB));
 
 
         return view;
     }
 
 
+    @Override
+    public void onServiceConnected(ComponentName name, IBinder service) {
 
+        MoviesService.MyBinder b = (MoviesService.MyBinder) service;
+        s = b.getService();
+        Toast.makeText(getContext(), "Connected", Toast.LENGTH_SHORT).show();
 
-    private class GetMoviesTask extends AsyncTask<String, Void, List<Movies>> {
-
-        List<Movies> moviesList;
-        private final AppDatabase appDatabase;
-
-        private GetMoviesTask(AppDatabase appDB) {
-            appDatabase = appDB;
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            Log.i(TAG, "Call onPreExecute from AsyncTask");
-
-        }
-
-        @Override
-        protected List<Movies> doInBackground(String... strings) {
-
-            Log.i(TAG, "Call doInBackground from AsyncTask");
-
-            WebServices webServices = APIClient.getClient().create(WebServices.class);
-
-            Call<Movies> call = webServices.getMovies(API_KEY);
-
-            call.enqueue(new Callback<Movies>() {
-                @Override
-                public void onResponse(Call<Movies> call, Response<Movies> response) {
-                    moviesFromService = response.body().getResults();
-//                    listView.setAdapter(new MoviesAdapter(getContext(), moviesFromService));
-
-                    Log.i(TAG, "Call onResponse from Callback");
-
-                    DatabaseInitializer databaseInitializer = new DatabaseInitializer();
-                    for (Movies.Movie item : moviesFromService){
-                        databaseInitializer.populateDatabaseWithMovies(appDatabase, item);
-//                        moviesFromService = appDatabase.moviesDao().getAll();
-//                        moviesFromDB = moviesFromService.get(0);
-//                        Log.i("--========--=->", moviesFromService.get(0).toString());
-
-
-//
-//                        //The user can be retrieved
-//                        List<User> users = mDatabase.userDao().getUsers();
-//                        assertThat(users.size(), is(1));
-//                        User dbUser = users.get(0);
-//                        assertEquals(dbUser.getId(), USER.getId());
-                    }
-
-                    moviesFromDB = appDatabase.moviesDao().getAll();
-                    listView.setAdapter(new MoviesAdapter(getContext(), moviesFromDB));
-                }
-
-                @Override
-                public void onFailure(Call<Movies> call, Throwable t) {
-                    Log.e("CAIU ONFAILURE --->", t.toString());
-                }
-            });
-
-
-
-
-            return moviesList;
-        }
-
-
-        @Override
-        protected void onPostExecute(List<Movies> movies) {
-            super.onPostExecute(movies);
-            Log.i(TAG, "Call onPostExecute from AsyncTask");
-
-        }
     }
+
+    @Override
+    public void onServiceDisconnected(ComponentName name) {}
 }

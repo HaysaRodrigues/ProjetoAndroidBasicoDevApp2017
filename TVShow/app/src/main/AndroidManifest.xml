@@ -34,6 +34,10 @@
         </activity>
         <activity android:name="com.haysarodrigues.ui.MovieActivity"></activity>
 
+        <service
+            android:name="com.haysarodrigues.repository.service.MoviesService">
+        </service>
+
         <receiver android:name="com.haysarodrigues.ui.notification.TVShowBroadcastReceiver" android:exported="false">
             <intent-filter>
                 <action android:name="WISHLIST"/>
