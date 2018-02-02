@@ -48,7 +48,7 @@ public class Series {
         }
 
         public String getBackdrop_path() {
-            return "http://image.tmdb.org/t/p/w600/" + backdrop_path;
+            return "http://image.tmdb.org/t/p/w500/" + backdrop_path;
         }
 
     }
