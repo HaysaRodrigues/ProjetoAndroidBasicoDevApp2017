@@ -14,15 +14,13 @@ public class DatabaseInitializer {
 
 
     private static Movies.Movie addMovies (final AppDatabase database, Movies.Movie movie){
-        database.moviesDao().insertAll(movie);
+        database.moviesDao().insertAllMovies(movie);
         return movie;
     }
 
     public static void populateDatabaseWithMovies(AppDatabase database, Movies.Movie movie){
         addMovies(database, movie);
-
-        List<Movies.Movie> movieList = database.moviesDao().getAll();
-        Log.d("DADOS DO BANCO", "AQUI" + movieList.size());
+        List<Movies.Movie> movieList = database.moviesDao().getAllMovies();
     }
 
 

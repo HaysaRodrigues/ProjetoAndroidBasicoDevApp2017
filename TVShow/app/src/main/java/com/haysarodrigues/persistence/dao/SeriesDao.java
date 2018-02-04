@@ -4,23 +4,21 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
-import com.haysarodrigues.model.Movies;
+import com.haysarodrigues.model.Series;
 
 import java.util.List;
 
 /**
- * Created by Haysa on 13/01/18.
+ * Created by Haysa on 02/02/18.
  */
 
 @Dao
-public interface MoviesDao {
+public interface SeriesDao {
 
-    @Query("SELECT * FROM movie")
-    List<Movies.Movie> getAllMovies();
-
+    @Query("SELECT * FROM serie")
+    List<Series.Serie> getAllSeries();
 
     @Insert
-    void insertAllMovies(Movies.Movie... movies);
-
+    void insertAllSeries(Series.Serie... series);
 
 }

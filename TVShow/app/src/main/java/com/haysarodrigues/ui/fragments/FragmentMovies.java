@@ -3,11 +3,9 @@ package com.haysarodrigues.ui.fragments;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,19 +13,12 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.haysarodrigues.database.AppDatabase;
-import com.haysarodrigues.database.DatabaseInitializer;
-import com.haysarodrigues.repository.api.APIClient;
-import com.haysarodrigues.repository.api.WebServices;
 import com.haysarodrigues.repository.service.MoviesService;
 import com.haysarodrigues.ui.adapter.MoviesAdapter;
 import com.haysarodrigues.model.Movies;
 import com.haysarodrigues.tvshow.R;
 
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Created by Haysa on 08/08/17.
@@ -51,7 +42,7 @@ public class FragmentMovies extends android.support.v4.app.Fragment implements S
         Intent service = new Intent(getContext(), MoviesService.class);
         getContext().startService(service);
 
-        moviesFromDB = AppDatabase.getAppDatabase(getContext()).moviesDao().getAll();
+        moviesFromDB = AppDatabase.getAppDatabase(getContext()).moviesDao().getAllMovies();
         listView.setAdapter(new MoviesAdapter(getContext(), moviesFromDB));
 
 
