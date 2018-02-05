@@ -17,10 +17,13 @@ public class Series {
 
         @SerializedName("name")
         private String name;
+
         @SerializedName("overview")
         private String overview;
+
         @SerializedName("poster_path")
         private String poster_path;
+
         @SerializedName("backdrop_path")
         private String backdrop_path;
 

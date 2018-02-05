@@ -40,12 +40,17 @@ public class Movies {
         @SerializedName("poster_path")
         private String poster_path;
 
-        public Movie(String title, String overview, String vote_average, String poster_path) {
+        @ColumnInfo(name = "backdrop_path")
+        @SerializedName("backdrop_path")
+        private String backdrop_path;
+
+        public Movie(String title, String overview, String vote_average, String poster_path, String backdrop_path) {
 
             this.title = title;
             this.overview = overview;
             this.vote_average = vote_average;
             this.poster_path = poster_path;
+            this.backdrop_path = backdrop_path;
 
         }
 
@@ -70,7 +75,11 @@ public class Movies {
         }
 
         public String getPoster_path() {
-            return poster_path;
+            return "http://image.tmdb.org/t/p/w154/" + poster_path;
+        }
+
+        public String getBackdrop_path() {
+            return "http://image.tmdb.org/t/p/w500/" + backdrop_path;
         }
 
     }

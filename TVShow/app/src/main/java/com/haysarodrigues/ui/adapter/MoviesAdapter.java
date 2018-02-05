@@ -26,24 +26,6 @@ public class MoviesAdapter extends ArrayAdapter<Movies.Movie> {
         this.movies = movies;
     }
 
-    public Object getTitle(int i) {
-        return movies.get(i).getTitle();
-    }
-
-    public Object getOverview(int i) {
-
-        return movies.get(i).getOverview();
-    }
-
-    public Object getVoteAverage(int i) {
-
-        return movies.get(i).getVote_average();
-    }
-
-    public Object getPosterPath(int i) {
-        return movies.get(i).getPoster_path();
-    }
-
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
 

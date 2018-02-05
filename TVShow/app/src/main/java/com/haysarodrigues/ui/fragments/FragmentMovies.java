@@ -3,11 +3,9 @@ package com.haysarodrigues.ui.fragments;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,19 +13,14 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.haysarodrigues.database.AppDatabase;
-import com.haysarodrigues.database.DatabaseInitializer;
-import com.haysarodrigues.repository.api.APIClient;
-import com.haysarodrigues.repository.api.WebServices;
 import com.haysarodrigues.repository.service.MoviesService;
+import com.haysarodrigues.ui.MovieActivity;
 import com.haysarodrigues.ui.adapter.MoviesAdapter;
 import com.haysarodrigues.model.Movies;
 import com.haysarodrigues.tvshow.R;
 
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Created by Haysa on 08/08/17.
@@ -35,7 +28,6 @@ import retrofit2.Response;
 
 public class FragmentMovies extends android.support.v4.app.Fragment implements ServiceConnection{
 
-    private static final String TAG = "FragmentMovies";
     public static ListView listView;
     List<Movies.Movie> moviesFromDB;
     private MoviesService s;
@@ -53,6 +45,25 @@ public class FragmentMovies extends android.support.v4.app.Fragment implements S
 
         moviesFromDB = AppDatabase.getAppDatabase(getContext()).moviesDao().getAll();
         listView.setAdapter(new MoviesAdapter(getContext(), moviesFromDB));
+
+        listView.setOnItemClickListener((adapterView, view1, i, l) -> {
+
+            String movie = moviesFromDB.get(i).getTitle();
+            String overview = moviesFromDB.get(i).getOverview();
+            String voteAverage = moviesFromDB.get(i).getVote_average();
+            String imagePath = moviesFromDB.get(i).getPoster_path();
+            String imageBackdropPath = moviesFromDB.get(i).getBackdrop_path();
+
+            Intent intent = new Intent(getActivity(), MovieActivity.class);
+            intent.putExtra("movie", movie);
+            intent.putExtra("overview", overview);
+            intent.putExtra("voteAverage", voteAverage);
+            intent.putExtra("imagePath", imagePath);
+            intent.putExtra("imageBackdropPath", imageBackdropPath);
+
+            startActivity(intent);
+
+        });
 
 
         return view;

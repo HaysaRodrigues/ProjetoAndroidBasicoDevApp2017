@@ -1,37 +1,50 @@
 package com.haysarodrigues.ui;
 
-import android.content.Intent;
-import android.net.Uri;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.haysarodrigues.tvshow.R;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by Haysa on 09/08/17.
  */
 
-public class MovieActivity extends AppCompatActivity implements View.OnClickListener{
-
-    private static final String TAG = MovieActivity.class.getSimpleName();
+public class MovieActivity extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie);
 
-        findViewById(R.id.buttonWishList2).setOnClickListener(this);
+        String title = getIntent().getStringExtra("movie");
+        TextView textView = findViewById(R.id.titleMovie);
+        textView.setText(title);
 
-        String movie = getIntent().getStringExtra("movie");
-        TextView textView = findViewById(R.id.textMovie);
-        textView.setText(movie);
-        getSupportActionBar().setTitle(movie);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        String overview = getIntent().getStringExtra("overview");
+        TextView textOverview = findViewById(R.id.textMovieOverview);
+        textOverview.setText(overview);
+        textOverview.setMovementMethod(new ScrollingMovementMethod());
+
+        String voteAverage = getIntent().getStringExtra("voteAverage");
+        TextView voteAverageTextView = findViewById(R.id.voteAverage);
+        voteAverageTextView.setText(voteAverage);
+
+        String poster = getIntent().getStringExtra("imagePath");
+        ImageView posterMovie = findViewById(R.id.posterMoviePath);
+        Picasso.with(this).load(poster).into(posterMovie);
+
+        String imageBackdropPath = getIntent().getStringExtra("imageBackdropPath");
+        ImageView posterBackdrop = findViewById(R.id.backdropPathMovie);
+        Picasso.with(this).load(imageBackdropPath).into(posterBackdrop);
 
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -39,20 +52,6 @@ public class MovieActivity extends AppCompatActivity implements View.OnClickList
         return true;
     }
 
-    @Override
-    public void onClick(View view) {
 
-        Intent intent = new Intent(new Intent("WISHLIST"));
-        sendBroadcast(intent);
-
-    }
-
-    public void onClickSearchWeb(View view){
-        String movie = getIntent().getStringExtra("movie");
-        String url = "https://www.google.com.br/search?q=" + movie ;
-        Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse(url));
-        startActivity(i);
-    }
 
 }
