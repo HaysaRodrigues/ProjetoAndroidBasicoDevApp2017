@@ -26,4 +26,5 @@ This repository contains the evolution of my android project module from C.E.S.A
 1. [Live Data](https://developer.android.com/topic/libraries/architecture/livedata.html)
 2. [View Model](https://developer.android.com/topic/libraries/architecture/viewmodel.html)
 3. [Room](https://developer.android.com/topic/libraries/architecture/room.html)
+4. Service: IBinder, Binder, ServiceConnection
 
