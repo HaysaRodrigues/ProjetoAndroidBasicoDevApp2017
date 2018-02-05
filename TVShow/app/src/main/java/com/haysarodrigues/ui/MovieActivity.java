@@ -26,6 +26,11 @@ public class MovieActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.titleMovie);
         textView.setText(title);
 
+
+        String releaseDate = getIntent().getStringExtra("releaseDate");
+        TextView releaseDateTextView = findViewById(R.id.releaseDate);
+        releaseDateTextView.setText(releaseDate);
+
         String overview = getIntent().getStringExtra("overview");
         TextView textOverview = findViewById(R.id.textMovieOverview);
         textOverview.setText(overview);

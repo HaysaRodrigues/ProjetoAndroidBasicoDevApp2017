@@ -50,6 +50,7 @@ public class FragmentMovies extends android.support.v4.app.Fragment implements S
 
             String movie = moviesFromDB.get(i).getTitle();
             String overview = moviesFromDB.get(i).getOverview();
+            String releaseDate = moviesFromDB.get(i).getRelease_date();
             String voteAverage = moviesFromDB.get(i).getVote_average();
             String imagePath = moviesFromDB.get(i).getPoster_path();
             String imageBackdropPath = moviesFromDB.get(i).getBackdrop_path();
@@ -57,6 +58,7 @@ public class FragmentMovies extends android.support.v4.app.Fragment implements S
             Intent intent = new Intent(getActivity(), MovieActivity.class);
             intent.putExtra("movie", movie);
             intent.putExtra("overview", overview);
+            intent.putExtra("releaseDate", releaseDate);
             intent.putExtra("voteAverage", voteAverage);
             intent.putExtra("imagePath", imagePath);
             intent.putExtra("imageBackdropPath", imageBackdropPath);
